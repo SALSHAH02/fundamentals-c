@@ -1,0 +1,272 @@
+--------------------------------what happens when one runs the code ?--------------------------------------
+
+****Preprocessor :-****
+
+-> Removes all the comments from the sorece code.
+-> Add all the code of header file to the source code.
+-> If any MACRO is used it will replace it by its value.
+
+******Complier :-******
+
+-> It will generate a assembly code of the source code.
+
+*****Assembler :-*****
+
+-> Assembler converts assemble code into object code (That is binary code or object code.)
+
+******Linker :-*******
+
+-> It links all the various object file to a single .exe file that is executeable file and link it with all the library that are included in that code.
+
+------------------------------------Fundamentals of C language-------------------------------------------------
+
+--> What happens if you write the printf statement like these....
+ --->printf("Hello world
+                     ");
+----->Printf never supplies a newline automatically, so several call may be used to built up and output line in stage. Our first program.
+
+------------------------------------Variable Names-------------------------------------------------------------
+
+---> Restriction on the namse of variable.
+-> The first character must be a letter.
+-> Underscore counts as a letter.
+-> Don't begin varaible names with underscore.
+-> Upper case and lower case are two diffrent letters. 
+**Note** 
+-> Short names are preffered for local variable and long namesof varaible are for external variables.
+
+------------------------------------Operators in C language.---------------------------------------------------
+
+-> C operators are one of the feature in c which has symbol that can be used to perform mathematical, relational, bitwise and conitional or logical manipulations.
+The C programing language has a lot of built-in operators to perform various task as per the need pf the program. There are diffrent types of operators in c language.
+
+
+   Operation Type  |        Operator's Type    |         Operators
+-------------------|---------------------------|---------------------------
+-> Unary Operators |-> Increment, Decrement    |-> (++), (--)
+                   | Operators.                |
+		   |                           |
+-> Binary Operators|-> Arithmatic operators.   |-> +, -, *, /, %                          
+                   |                           |
+                   |-> Logical Operators.      |-> (&&), (||), !                    
+                   |                           |
+                   |-> Bitwise Operators.      |-> &, |, <<, >>, -, ^                     
+                   |                           |
+                   |-> Relational Operators.   |-> <, <=, >, >=, ==                        
+                   |                           |
+                   |-> Assignment Operators.   |-> =, +=, -=
+                   |                           |
+->Ternary Operators|-> conditional Operators.  |-> ? :                        
+                   |                           |
+
+-------> Unary Operator <--------
+
+-> Are the operators that act upon a single operand to produce a new value.
+
+------>> Binary Operator & Ternary Operators <<-------
+
+-> Binary operators perform an action upon two operands and ternary operator operates an action involving three operands.
+
+--Here an operand is the part of an instruction representing the data mainpulated by the operators. For exmaple when you add two numbers the numbers are the operands and (+) is the 
+operator.
+
+
+---------------------------------------------------Control Flow--------------------------------------------------------
+
+----< For Loop >----
+
+-> If there is nothing written in the for loop statement it will run infinite times.
+-> If the increment , decrement is not written then aslo it will run infinite times.
+-> Multiple conditions can be written using coma (,). Only executes the last condition but checks all the conditions.
+
+----< Switch Case >----
+
+-> There will no problem or error if we change the position of the default in switch case.
+-> It will never excute the statments written between curly braces and case lable.
+-> The expression is evaluated once and compared with the value of each case lable.
+
+-->>Here expression means.....The main difference between an expression and a statement in programing is expression can be assigned or used as operands. While statments can only be
+declared.
+
+------------------------------------------------Functions in C language-------------------------------------------------
+
+-> Why we need functions, what is its requirements and specification ?
+-> A functionv is a group of statmens that together performs a task. Every c program has at least one function which is main(), and all the most trivid programs can define 
+additional functions.
+-> A function declaration tells the copiler about a function's name, return type, and parameters.
+
+--< Syntax >--
+
+-> return_type function_name (parameter list)
+  {
+   Body of the Function
+  }
+
+--< What is Parameter ? >--
+
+-> A parameter is like a placeholder. when a function is invoked, you pass a value to the parameter. This value is reflected to as actual parameter or argument. The paramenter
+ list refer to the type.
+->Paramenter names are nit inportant i function declaration only theit type is required.
+
+
+-------------------------------------------------Pointers in C language------------------------------------------------------
+
+-> Pointer is a special variable that is capable of storing some address.
+-> It is a special varaiable, it is not normal variable whcih will store integer, character or a float.
+-> It will store the address or the base address of the varaiable or an object which it wants to point to.
+-> It points to a memory location where the first byte is stored. That is it simply points to the base address of the varaiable.
+
+---< General Syntax for declaring pointer varaibles >--
+
+-> Data_type *Pointer_name.
+      ^
+      |--> Here data_type refers to the type of the value that the pointer will point to.
+        -> Please remember that the pointer variable dose not have its own data type because it always contains the address of some other objects.
+        -> As it always points to some other object therefore the data type of the that object we have to mention over here.
+        -> So here the data types simply refers tp the type of the value which is being pointed by the pointer variable.
+
+**** Simply declaring a pointer i not enough ****
+**** It is important to initialize pointer before use ****      
+
+--< Example >--
+
+-> Int *ptr-> Points to integer value.
+->char *ptr-> points to character value.
+
+----------< How to initalize a pointer variable >----------
+
+-> One way to initalize a pointer is to assign address of some varaible.
+-> If we have a variable then we can assign the address of the variable with the help of operator.
+                  "NEED OF ADDRESS OF OPRATOR"
+->Exampel:-
+
+------> int x =5;     |
+	int *ptr;     | ======>> We can aslo write all these linse in one single line aslo,
+	ptr = &x;     |     ---> int x = 5, *ptr = &x;
+	      ^ 
+              |-> Here ampercent means the address of operator.This statement says that assign the address of variable x to this pointer(ptr) variable.  
+               -> Address of x is 1000 with the help of this statementwe can assign this address to this pointer variable.
+
+---------< Value of Operators in pointer >----------
+
+-> Value of operator / indirection operator / derefrence operator is an operator that is used to access the value stored at the location pointed by the pointer.
+--> Example :-
+              int x = 5;
+	      int *ptr;
+              ptr = &x;
+              printf("%d", *ptr);
+                           ^
+                           |-> the(*) says go to the address of object and take what is stored in the object.(This is known as value of operator.)
+	       	
+-> We can also change the value of the object pointed by the pointer.
+--> Example:-
+              int x = 10;     ---------> value of x =10
+	      int *ptr = &x;
+              *ptr = 4;       ---------> value of x = 4
+              printf("%d", *ptr);  ========>> OUTPUT :- 4
+
+--------< Note >---------
+
+-> Never apply the indirection operator to the uninitalized pointer.
+-> For Example:- 
+                int *ptr;
+                printf("%d", *ptr);------> It is wrong.
+       
+-> Assigning value to an unintialized pointer is dangerous.
+-> Example :- 
+	     int *ptr;
+             *ptr = 1;=================>> OUTPUT :- Segmentation fault.
+
+-> As the ptr pointer is not pointinf to any location so how we can go to that location and provide this value to the location.
+-> Usually , segmentation fault is caused by programing trying to read or write an illegal memory location.
+
+--------------< How to assign the content of one pointer to another pointer >----------------
+Example :-
+	  int i = 0;
+	  int *p, *q;
+	  p = &i;
+	  q = p;
+	  printf("%d %d", *p,*q);     
+
+--------------------< Pointer application >-----------------------
+
+-> Finding the largest and samllest element in an array.
+-> What is the advantage of using pointer in this case ? ==> The advantage is that the function which will be finding the largest and smallest element will be returning two values at a time 
+using the pointer it passes the copy of the varaiable to the address it is pointing.(The changes of the function are reflected back to the main varaiable.)
+-> Never try to return the address of an local variable.
+
+---< How to print the address of variable >---
+
+-> Example :- 
+             int main()
+            {
+	     int i = 10, p = &i; (here we can aslo write *p)
+             printf("The address of variable is %p", p);
+             return 0;
+	    } 
+
+-> We can also add and subtract using the pointer but it could only be performed when both the pointer are pointing to same array. It results into the distance between two pointers.
+In addition or subtraction the pointer will shift according to the result and it will point to the result index.
+-> Increment and decrement is aslo possible using the pointer.
+-> Use relational operators (<,>,<=,>=) and equality operators (==, !=) to compare pointers.
+-> Only possible when both the pointers are points to same array.
+-> o/p depends upon the relative positions of both the pointers.
+-> calculate the sum of elements of array using pointers.
+
+---------< FACT >-------------
+-> Name of array can be used as a pointer to the first element of an array....
+--> Example :- 
+              int a[5];
+              *a = 10;
+              printf("%d", a[0]);===========>> OUTPUT = 10 
+
+-->> It is true that we can use the name of array names as pointers but using a nem address to them is not posiible.
+===>> Example :-
+               int a[] = {1,2,3,4,5};
+               printf("%p", a++);=======>> Error.
+-> The other application of pointer could be using it with the two dimensional array.
+
+-----------------------------------------------------------Structure in C language--------------------------------------------------------------------
+
+-> A structure is a keyword that creates user-defined data types in C. A structure creates a data type that can be used to group items of possibly different types into a single type.
+-> For understanding : if one want to store all the information about the car which are available in his garage.
+
+**Note**
+-> Array is not a good option in this case.
+-> As Array has the ability to store more than one element but they all must be of same type.
+
+----< What happens if we can define our own type, which can accomodate all the require type >----
+
+-> Structure is a user defined data type that can be used to group element of diffrent type into a single type.
+
+---------< Declaring Structure variable >---------
+
+-> Example:- 
+             struct {
+                     char 
+                     char 
+		     int 
+		     float
+                    } car1, car2;
+
+-> With the help of (.) dor operator we will be able to access the member of the strcuture.
+-> struct {
+   char * engin
+   int speed;
+} car1, car2;
+
+int main()
+{
+car1.engin = "TDI engin"
+PRINT THE ENGIN VARIABLE.
+return 0;
+}
+
+-->> 
+
+
+
+
+               
+
+ 
